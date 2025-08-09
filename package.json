@@ -1,0 +1,20 @@
+{
+  "name": "github-models-gpt4o-starter",
+  "version": "1.0.0",
+  "description": "Starter repository for demonstrating GitHub Marketplace-hosted AI models (GPT-4o) using Node.js",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node sample-basic.js",
+    "basic": "node sample-basic.js",
+    "multiturn": "node sample-multiturn.js",
+    "stream": "node sample-stream.js",
+    "image": "node sample-image.js",
+    "tools": "node sample-tools.js",
+    "reasoning": "node sample-reasoning.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^5.6.0"
+  }
+}
