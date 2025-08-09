@@ -167,11 +167,11 @@ Once you have finished implementing your multi-turn coding assistant chatbot in 
    ![How to Make a PR - Step 3](./Images/pr-image3.png)
 
 7. **Create an Issue**
-   - Go to the main repository and create an issue using the `submission` template.
-   - Fill in the following details:
-     - Full Name
-     - University
-     - Pull Request Link
+  - Go to the [main repository](https://github.com/nisalgunawardhana/Github-models-starter-pro) and create an issue using the `submission` template.
+  - Fill in the following details:
+    - Full Name
+    - University
+    - Pull Request Link
 
 8. **Review and Certification**
    - Once your submission is reviewed and approved, you will receive a badge and certificate.

@@ -3,6 +3,8 @@ name: Submission
 about: Submit your assessment for review
 labels: ["submission to review"]
 assignees: ["nisalgunawardhana"]
+labels:
+    - submission for review
 ---
 
 ### Submission Details
