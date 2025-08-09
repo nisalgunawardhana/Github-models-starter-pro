@@ -25,7 +25,7 @@ This repository provides a comprehensive starter kit for leveraging GitHub's GPT
 2. Clone your forked repository and create a new branch named `submission`:
 ```bash
 git clone https://github.com/your-username/Github-models-starter-pro.git
-cd github-models-chatbot-starter
+cd Github-models-starter-pro
 git checkout -b submission
 ```
 
@@ -155,7 +155,7 @@ Once you have finished implementing your multi-turn coding assistant chatbot in 
      git commit -m "Complete assessment"
      git push origin submission
      ```
-   - Create a pull request from your `submission` branch to the `submission-reviewer` branch on the main repository.
+   - Create a pull request from your `submission` branch to the `main` branch on the Your repository.
 
    ![How to Make a PR - Step 1](./Images/pr-image1.png)
    ![How to Make a PR - Step 2](./Images/pr-image2.png)
@@ -163,6 +163,8 @@ Once you have finished implementing your multi-turn coding assistant chatbot in 
     Follow the above images for a visual guide on creating a pull request.
 
    **Tip:** After creating your pull request, copy the PR link from your browser's address bar. You will need this link when creating your submission issue in the next step.
+
+   ![How to Make a PR - Step 3](./Images/pr-image3.png)
 
 7. **Create an Issue**
    - Go to the main repository and create an issue using the `submission` template.
