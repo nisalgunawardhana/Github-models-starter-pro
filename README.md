@@ -195,8 +195,7 @@ To use these demos, you need a GitHub personal access token with the `models:rea
 5. Click **"Generate token"** and copy the token (you won't be able to see it again)
 
 ### Video Walkthrough
-
-[![How to Get a GitHub Token – Video Walkthrough](https://img.youtube.com/vi/15yXeESfRivaoXj1350rcwQbAzLaQJfMK/0.jpg)](https://drive.google.com/file/d/15yXeESfRivaoXj1350rcwQbAzLaQJfMK/view?usp=sharing)
+[![How to Get a GitHub Token – Video Screenshot](./Images/video.png)](https://drive.google.com/file/d/15yXeESfRivaoXj1350rcwQbAzLaQJfMK/view?usp=sharing)
 
 > [Click here to watch the video walkthrough on Google Drive.](https://drive.google.com/file/d/15yXeESfRivaoXj1350rcwQbAzLaQJfMK/view?usp=sharing)
 
