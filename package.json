@@ -11,7 +11,10 @@
     "stream": "node sample-stream.js",
     "image": "node sample-image.js",
     "tools": "node sample-tools.js",
-    "reasoning": "node sample-reasoning.js"
+    "reasoning": "node sample-reasoning.js",
+    "creative": "node sample-creative-writing.js",
+    "codereview": "node sample-code-review.js"
+
   },
   "dependencies": {
     "dotenv": "^16.0.3",

@@ -1,6 +1,6 @@
 # GitHub Models Starter Pro
 
-This repository provides a comprehensive starter kit for leveraging GitHub's GPT-4o AI models with Node.js. Designed for developers, students, and educators, it showcases practical examples for building intelligent chatbots, handling multi-turn conversations, streaming AI responses, processing images, and integrating advanced reasoning capabilities. With step-by-step setup instructions and real-world coding tasks, this project helps you quickly integrate state-of-the-art AI into your applications. Ideal for those seeking to learn, experiment, or build production-ready solutions using GitHub's AI inference API and the latest GPT-4o technology.
+This repository provides a comprehensive starter kit for leveraging GitHub's GPT-4o and GPT-5 AI models with Node.js. Designed for developers, students, and educators, it showcases practical examples for building intelligent chatbots, handling multi-turn conversations, streaming AI responses, processing images, and integrating advanced reasoning capabilities. With step-by-step setup instructions and real-world coding tasks, this project helps you quickly integrate state-of-the-art AI into your applications. Ideal for those seeking to learn, experiment, or build production-ready solutions using GitHub's AI inference API and the latest GPT-4o and GPT-5 technologies.
 
 [![Follow me on GitHub](https://img.shields.io/github/followers/nisalgunawardhana?label=Follow%20me%20on%20GitHub&style=social)](https://github.com/nisalgunawardhana)
 
@@ -11,6 +11,8 @@ This repository provides a comprehensive starter kit for leveraging GitHub's GPT
 - **Image Input Handling**
 - **Function/Tool Calling**
 - **Reasoning Models** (Complex problem solving and logical reasoning)
+- **Interactive Creative Writing** (GPT-5 powered storytelling)
+- **Automated Code Review** (GPT-5 powered code analysis)
 
 ## Prerequisites
 
@@ -88,6 +90,33 @@ This example demonstrates:
 - Logic puzzles
 - Complex problem solving
 - Ethical reasoning scenarios
+
+### Interactive Creative Writing (GPT-5)
+Run the `sample-creative-writing.js` file to experience advanced storytelling with GPT-5:
+```bash
+node sample-creative-writing.js
+```
+
+This example demonstrates:
+- Interactive story generation with user choices
+- Multi-genre support (Sci-Fi, Fantasy, Mystery, etc.)
+- Dynamic narrative branching based on decisions
+- Character consistency across story segments
+- Creative prompt engineering for storytelling
+
+### Automated Code Review (GPT-5)
+Run the `sample-code-review.js` file for comprehensive code analysis with GPT-5:
+```bash
+node sample-code-review.js
+```
+
+This example demonstrates:
+- Multi-language code analysis (JavaScript, Python, Java, C++, etc.)
+- Security vulnerability assessment
+- Performance optimization suggestions
+- Code quality scoring and improvement recommendations
+- Automated code refactoring with explanations
+- Professional documentation generation
 
 ---
 ## Assessment Task: Multi-turn Coding Assistant Chatbot
