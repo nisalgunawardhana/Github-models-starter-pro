@@ -6,6 +6,7 @@ yarn-error.log
 
 # Environment variables
 .env
+.env.sample
 
 # Package files
 package-lock.json
