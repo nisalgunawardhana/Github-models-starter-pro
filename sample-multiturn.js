@@ -44,7 +44,7 @@ export async function main() {
 
   // Initialize conversation with system message to define AI behavior
   let messages = [
-    { role: "system", content: "You are a helpful assistant." }
+    { role: "system", content: "You are a helpful assistant for coding tasks." }
   ];
 
   // Recursive function to handle continuous conversation
