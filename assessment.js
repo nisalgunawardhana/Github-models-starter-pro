@@ -1,38 +1,38 @@
 /**
  * ASSESSMENT TASK - MULTI-TURN CODING ASSISTANT CHATBOT
- * 
+ *
  * This file serves as the main assignment for creating a sophisticated coding assistant
  * chatbot using the GPT-4o model through GitHub's AI inference API.
- * 
+ *
  * OBJECTIVE:
  * Create a multi-turn conversational chatbot that provides meaningful coding guidance
  * and assistance to developers. The chatbot should maintain conversation context
  * across multiple exchanges and provide helpful, accurate coding advice.
- * 
+ *
  * REQUIREMENTS TO IMPLEMENT:
  * 1. Environment Setup:
  *    - Load environment variables using the `dotenv` package
  *    - Initialize the OpenAI API client with GitHub token authentication
  *    - Configure the endpoint to use GitHub's AI inference service
- * 
+ *
  * 2. Multi-turn Conversation Logic:
  *    - Implement a conversation loop that maintains context
  *    - Store conversation history to preserve context across exchanges
  *    - Handle user input and AI responses in a continuous dialogue
- * 
+ *
  * 3. Coding Assistance Features:
  *    - Provide meaningful coding guidance based on user queries
  *    - Support various programming languages and concepts
  *    - Offer code examples, explanations, and best practices
  *    - Handle debugging help and code review suggestions
- * 
+ *
  * EXAMPLE INTERACTIONS:
  * User: "How do I create a function in JavaScript?"
  * Bot: "You can create a function using the `function` keyword or as an arrow function. Here's an example: ..."
- * 
+ *
  * User: "Can you help me debug this code?"
  * Bot: "I'd be happy to help debug your code. Please share the code and describe the issue you're experiencing..."
- * 
+ *
  * TECHNICAL IMPLEMENTATION NOTES:
  * - Use the OpenAI SDK with GitHub's models endpoint
  * - Implement proper error handling for API calls
@@ -78,7 +78,9 @@ export async function main() {
   });
 
   // Initialize conversation with system message to define AI behavior
-  let messages = [{ role: "system", content: "You are a helpful assistant for github." }];
+  let messages = [
+    { role: "system", content: "You are a helpful assistant for Object oriented programming." },
+  ];
 
   // Recursive function to handle continuous conversation
   async function chatLoop() {
