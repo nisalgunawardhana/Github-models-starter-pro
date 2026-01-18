@@ -13,7 +13,8 @@
     "tools": "node sample-tools.js",
     "reasoning": "node sample-reasoning.js",
     "creative": "node sample-creative-writing.js",
-    "codereview": "node sample-code-review.js"
+    "codereview": "node sample-code-review.js",
+    "assessment": "node assessment.js"
 
   },
   "dependencies": {
