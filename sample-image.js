@@ -82,6 +82,8 @@ function getImageDataUrl(imageFile, imageFormat) {
   }
 }
 
+const imageDataUrl = getImageDataUrl("sample.jpg", "jpg");
+
 // Execute the main function and handle any errors that occur
 main().catch((err) => {
   console.error("The sample encountered an error:", err);
