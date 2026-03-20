@@ -14,10 +14,10 @@
     "reasoning": "node sample-reasoning.js",
     "creative": "node sample-creative-writing.js",
     "codereview": "node sample-code-review.js"
-
   },
   "dependencies": {
-    "dotenv": "^16.0.3",
-    "openai": "^5.6.0"
+    "dotenv": "^16.6.1",
+    "openai": "^5.23.2",
+    "readline-sync": "^1.4.10"
   }
 }

@@ -54,3 +54,55 @@
 // Example:
 // User: "How do I create a function in JavaScript?"
 // Bot: "You can create a function using the `function` keyword or as an arrow function. Here's an example: ..."
+import dotenv from "dotenv";
+import OpenAI from "openai";
+import readlineSync from "readline-sync";
+
+dotenv.config();
+
+// Initialize OpenAI client with GitHub endpoint
+const client = new OpenAI({
+  apiKey: process.env.GITHUB_TOKEN,
+  baseURL: "https://models.inference.ai.azure.com"
+});
+
+// Store conversation history
+let messages = [
+  {
+    role: "system",
+    content: "You are a helpful coding assistant. Explain clearly in simple English and give examples."
+  }
+];
+
+console.log("💻 Coding Assistant Chatbot");
+console.log("Type 'exit' to quit\n");
+
+// Chat loop
+while (true) {
+  const userInput = readlineSync.question("You: ");
+
+  if (userInput.toLowerCase() === "exit") {
+    console.log("Goodbye 👋");
+    break;
+  }
+
+  // Add user message
+  messages.push({ role: "user", content: userInput });
+
+  try {
+    const response = await client.chat.completions.create({
+      model: "gpt-4o",
+      messages: messages
+    });
+
+    const botReply = response.choices[0].message.content;
+
+    console.log("\nBot:", botReply, "\n");
+
+    // Save bot response
+    messages.push({ role: "assistant", content: botReply });
+
+  } catch (error) {
+    console.error("❌ Error:", error.message);
+  }
+}
