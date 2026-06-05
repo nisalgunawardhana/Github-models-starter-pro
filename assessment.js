@@ -1,56 +1,102 @@
-/**
- * ASSESSMENT TASK - MULTI-TURN CODING ASSISTANT CHATBOT
- * 
- * This file serves as the main assignment for creating a sophisticated coding assistant
- * chatbot using the GPT-4o model through GitHub's AI inference API.
- * 
- * OBJECTIVE:
- * Create a multi-turn conversational chatbot that provides meaningful coding guidance
- * and assistance to developers. The chatbot should maintain conversation context
- * across multiple exchanges and provide helpful, accurate coding advice.
- * 
- * REQUIREMENTS TO IMPLEMENT:
- * 1. Environment Setup:
- *    - Load environment variables using the `dotenv` package
- *    - Initialize the OpenAI API client with GitHub token authentication
- *    - Configure the endpoint to use GitHub's AI inference service
- * 
- * 2. Multi-turn Conversation Logic:
- *    - Implement a conversation loop that maintains context
- *    - Store conversation history to preserve context across exchanges
- *    - Handle user input and AI responses in a continuous dialogue
- * 
- * 3. Coding Assistance Features:
- *    - Provide meaningful coding guidance based on user queries
- *    - Support various programming languages and concepts
- *    - Offer code examples, explanations, and best practices
- *    - Handle debugging help and code review suggestions
- * 
- * EXAMPLE INTERACTIONS:
- * User: "How do I create a function in JavaScript?"
- * Bot: "You can create a function using the `function` keyword or as an arrow function. Here's an example: ..."
- * 
- * User: "Can you help me debug this code?"
- * Bot: "I'd be happy to help debug your code. Please share the code and describe the issue you're experiencing..."
- * 
- * TECHNICAL IMPLEMENTATION NOTES:
- * - Use the OpenAI SDK with GitHub's models endpoint
- * - Implement proper error handling for API calls
- * - Consider user experience with clear prompts and responses
- * - Maintain conversation state throughout the session
- * - Allow graceful exit from the conversation
- */
+import OpenAI from "openai";
+import readline from "readline";
+import dotenv from "dotenv";
 
-// Assessment Task
-// Create a multi-turn chatbot for coding assistance using the GPT-4o model.
-// Use the `openai` package and implement the chatbot in this file.
+// 1. Load environment variables using `dotenv`
+dotenv.config();
 
-// Steps:
-// 1. Load environment variables using `dotenv`.
-// 2. Initialize the OpenAI API with the GitHub token.
-// 3. Implement a multi-turn conversation logic.
-// 4. Provide meaningful coding guidance based on user queries.
+const token = process.env.GITHUB_TOKEN;
+if (!token) {
+  console.error("❌ Error: GITHUB_TOKEN is missing in your .env file!");
+  process.exit(1);
+}
 
-// Example:
-// User: "How do I create a function in JavaScript?"
-// Bot: "You can create a function using the `function` keyword or as an arrow function. Here's an example: ..."
+// 2. Initialize the OpenAI API client with the GitHub token and endpoint
+const openai = new OpenAI({
+  apiKey: token,
+  baseURL: "https://models.inference.ai.azure.com",
+});
+
+// Configure the model required by the assignment
+const modelName = "gpt-4o";
+
+// Set up the terminal reading interface
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+// 3. Implement multi-turn conversation logic by storing history
+const conversationHistory = [
+  {
+    role: "system",
+    content: "You are a helpful multi-turn coding assistant chatbot. Provide clear coding guidance, code examples, debugging help, and support multiple programming languages.",
+  },
+];
+
+console.clear();
+console.log("====================================================");
+console.log("🚀 OpenAI-Powered Coding Assistant Chatbot Initialized!");
+console.log("Type your programming questions below.");
+console.log("Type 'exit' to gracefully close the application.");
+console.log("====================================================\n");
+
+// Continuous dialogue loop
+function askQuestion() {
+  rl.question("\x1b[36mYou:\x1b[0m ", async (userInput) => {
+    const cleanedInput = userInput.trim();
+
+    // Graceful exit condition
+    if (cleanedInput.toLowerCase() === "exit") {
+      console.log("\n👋 Goodbye! Happy coding!");
+      rl.close();
+      process.exit(0);
+    }
+
+    if (!cleanedInput) {
+      askQuestion();
+      return;
+    }
+
+    // Append user input to history to maintain context
+    conversationHistory.push({ role: "user", content: cleanedInput });
+
+    try {
+      process.stdout.write("\x1b[33mBot is thinking...\x1b[0m\r");
+
+      // 4. Request completion using OpenAI SDK over GitHub's service
+      const response = await openai.chat.completions.create({
+        messages: conversationHistory,
+        model: modelName,
+        temperature: 0.7,
+        max_tokens: 1000,
+      });
+
+      // Clear the "thinking..." placeholder
+      process.stdout.write("                                \r");
+
+      const botReply = response.choices[0].message.content;
+
+      // Print the response to the user
+      console.log(`\n\x1b[32mBot:\x1b[0m ${botReply}\n`);
+
+      // Append assistant response to history to sustain multi-turn context
+      conversationHistory.push({ role: "assistant", content: botReply });
+
+    } catch (error) {
+      process.stdout.write("                                \r");
+      console.error("\n❌ Error communicating with the GitHub AI API.");
+      console.error(`Details: ${error.message}`);
+      console.log("Please verify your internet connection or your GITHUB_TOKEN.\n");
+      
+      // Remove failed prompt from history context
+      conversationHistory.pop();
+    }
+
+    // Keep loop active
+    askQuestion();
+  });
+}
+
+// Start loop execution
+askQuestion();
